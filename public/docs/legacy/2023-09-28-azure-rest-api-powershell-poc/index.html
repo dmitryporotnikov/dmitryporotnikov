@@ -1,0 +1,163 @@
+<!doctype html><html lang=en-us dir=ltr><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="This PowerShell script serves as a Proof of Concept for teaching how to interact with Azure resources using REST API calls via PowerShell. It automates a series of Azure resource management tasks, providing a hands-on example for those looking to understand Azure REST API operations.
+Operations Covered: # Create a Managed Disk: Demonstrates how to allocate a managed disk in Azure. Create a Virtual Network (VNet): Shows the steps to set up a virtual network."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="http://localhost:1313/docs/legacy/2023-09-28-azure-rest-api-powershell-poc/"><meta property="og:site_name" content="My New Hugo Site"><meta property="og:title" content="Rest API: Azure REST API POC"><meta property="og:description" content="This PowerShell script serves as a Proof of Concept for teaching how to interact with Azure resources using REST API calls via PowerShell. It automates a series of Azure resource management tasks, providing a hands-on example for those looking to understand Azure REST API operations.
+Operations Covered: # Create a Managed Disk: Demonstrates how to allocate a managed disk in Azure. Create a Virtual Network (VNet): Shows the steps to set up a virtual network."><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:published_time" content="2023-09-28T13:20:38+00:00"><meta property="article:modified_time" content="2023-09-28T13:20:38+00:00"><title>Rest API: Azure REST API POC | My New Hugo Site</title>
+<link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png><link rel=canonical href=http://localhost:1313/docs/legacy/2023-09-28-azure-rest-api-powershell-poc/><link rel=stylesheet href=/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css integrity="sha256-MJt+0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.d9141972cbd985809409a02b47b12ef5a7f171564a36bd0b25cc703c61d91f7b.js integrity="sha256-2RQZcsvZhYCUCaArR7Eu9afxcVZKNr0LJcxwPGHZH3s=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>My New Hugo Site</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul><li class=book-section-flat><a href=/docs/legacy/>Example Site</a><ul><li><a href=/docs/legacy/2024-06-10-azure-linux-vm-time-synchronization/>Setting Up Chrony for Time Synchronization in Azure VMs</a></li><li><a href=/docs/legacy/2024-04-23-resolving-argument-list-too-long-error-linux/>Resolving the &amp;#8220;Argument list too long&amp;#8221; Error When Deleting Files in Linux</a></li><li><a href=/docs/legacy/2024-03-28-automatic-os-upgrade-vmss-issue/>Automatic OS Upgrade is not supported for this Virtual Machine Scale Set because a health probe or health extension was not specified.</a></li><li><a href=/docs/legacy/2024-03-27-one-liner-to-add-new-privileged-user-to-azure-linux-vm-using-run-command/>One-liner to add new privileged user to Azure Linux VM using run command</a></li><li><a href=/docs/legacy/2024-03-21-tracing-cron-jobs/>Troubleshooting a Non-Working Linux Cron Job with Strace</a></li><li><a href=/docs/legacy/2024-03-17-revitalize-dell-latitude-e5570-arch-linux/>Adventures with Arch Linux on an Old Laptop &amp;#8211; Dell Latitude E5570</a></li><li><a href=/docs/legacy/2024-02-11-windows-filtering-platform-wfp-overview/>Had some fun today learning about WFP drivers</a></li><li><a href=/docs/legacy/2024-02-09-kql-query-microsoft-services-retirement/>List services scheduled for retirement in Azure Graph / KQL</a></li><li><a href=/docs/legacy/2024-02-02-azure-vm-deployment-azure-ad-issue/>Encountering issues with Azure IAAS Virtual Machines not joining Azure AD post-deployment from a sysprepped template?</a></li><li><a href=/docs/legacy/2024-02-01-create-custom-filter-driver-windows/>How to Create Your Own Custom Filter Driver for Windows</a></li><li><a href=/docs/legacy/2024-01-30-install-windbg-windows-server-no-windows-store/>How to install WinDBG preview (Windows Store version) on Windows Server?</a></li><li><a href=/docs/legacy/2024-01-15-azzure-resource-graph-query-access/>Azure Resource Graph Queries to see who has access to Azure Subscriptions</a></li><li><a href=/docs/legacy/2023-12-01-recover-azure-vm-domain-admin-access/>PowerShell: Create a New Domain Admin User</a></li><li><a href=/docs/legacy/2023-11-07-enable-anonymous-access-azure-blob-storage/>Enabling Anonymous Access to Azure Blob Storage</a></li><li><a href=/docs/legacy/2023-11-06-manage-smb-1-windows/>Current configuration options for SMB 1.0 in Windows Environments</a></li><li><a href=/docs/legacy/2023-10-18-setting-up-a-flask-web-application-with-gunicorn-on-wsl/>Setting Up a Flask Web Application with Gunicorn on WSL</a></li><li><a href=/docs/legacy/2023-10-15-most-popular-operating-systems-desktop-laptops-1978-2023/>Most Popular Operating Systems (Desktop &amp;amp; Laptops) 1978 &amp;#8211; 2023</a></li><li><a href=/docs/legacy/2023-10-12-azure-vm-log-analysis-powershell/>PowerShell: Analyzing Virtual Machine Activity Logs to Determine Uptime and Downtime</a></li><li><a href=/docs/legacy/2023-10-11-thank-you-chatgpt/>Thank You, ChatGPT</a></li><li><a href=/docs/legacy/2023-10-11-nested-virtualization-madness-running-dosbox-inside-windows-xp-inside-windows-10-on-an-azure-vm-with-hyper-v/>Nested Virtualization Madness: Running DOSBox Inside Windows XP Inside Windows 10 on an Azure VM with Hyper-V</a></li><li><a href=/docs/legacy/2023-10-10-bypassing-azure-vm-limitations-script-based-solution/>PowerShell: Script-Based Workaround for Renaming Azure VMs and Switching to Unsupported Sizes</a></li><li><a href=/docs/legacy/2023-10-08-understanding-azure-capacity-reservations-guide/>Azure Capacity Reservations &amp;#038; Azure Reserved Instances</a></li><li><a href=/docs/legacy/2023-10-08-deploy-3-rhel-9_2-vms-with-shared-disks-to-form-a-cluster/>Bicep: Deploy 3 RHEL 9.2 VMs with shared disks to form a cluster</a></li><li><a href=/docs/legacy/2023-10-05-detecting-hypervisor-presence-using-cpuid-in-cpp/>C++: Detecting Hypervisor Presence Using CPUID Timing</a></li><li><a href=/docs/legacy/2023-10-03-linux-aio-performance-checker-real-time-diagnostics/>Streamlining Linux System Diagnostics: An Open-Source, Web-Based Approach</a></li><li><a href=/docs/legacy/2023-10-01-reverse-engineering-dotnet-applications-without-assembler/>Reverse Engineering .NET Applications Without Using Assembler</a></li><li><a href=/docs/legacy/2023-09-28-azure-rest-api-powershell-poc/ class=active>Rest API: Azure REST API POC</a></li><li><a href=/docs/legacy/2023-09-27-how-to-upgrade-legacy-azure-windows-vms/>How to Upgrade Legacy Azure Windows VMs Not Supported by Azure&amp;#8217;s Native In-Place Upgrade Feature</a></li><li><a href=/docs/legacy/2023-09-25-deploy-storage-spaces-on-azure-vm/>Deploy Storage Spaces on a Single Virtual Machine to Get Optimal Performance/Cost Ratio</a></li><li><a href=/docs/legacy/2023-09-24-windows-server-azure-vm-in-place-upgrade/>In Place Upgrade Your Windows Server Azure VM: Step by Step Guide</a></li><li><a href=/docs/legacy/2023-09-22-how-to-resolve-the-nla-error-in-azure-vms-when-the-computer-object-is-removed-from-active-directory/>How to resolve the NLA error in Azure VMs when the computer object is removed from Active Directory</a></li><li><a href=/docs/legacy/2023-09-22-simulating-memory-leaks-in-c-with-the-c-memory-leaker-tool-veryleakycauldron/>C++: Memory Leaker Tool &amp;#8211; VeryLeakyCauldron</a></li><li><a href=/docs/legacy/2023-09-21-why-cant-i-resize-the-underlying-storage-used-by-storage-spaces-direct/>Why can&amp;#8217;t I resize the underlying storage used by Storage Spaces?</a></li><li><a href=/docs/legacy/2023-09-20-powershell-download-and-use-azcopy-to-upload-files-to-azure-blob-storage/>PowerShell: Download and Use AzCopy (Windows) to Upload Files to Azure Blob Storage</a></li><li><a href=/docs/legacy/2023-09-20-powershell-automating-windows-crash-control-configuration/>PowerShell: Automating Windows Crash Control Configuration</a></li><li><a href=/docs/legacy/2023-09-18-powershell-create-a-nat-vmswitch-on-hyper-v/>PowerShell: Create a NAT VMSwitch on Hyper-V</a></li><li><a href=/docs/legacy/2023-09-18-powershell-download-iso-from-msdn-directly-to-the-server-vm/>PowerShell: Download ISO from MSDN Directly to the Server/VM</a></li><li><a href=/docs/legacy/2023-09-17-overview-of-shedevrum-yandexs-online-image-content-generation-service/>Overview of &amp;#8220;Shedevrum&amp;#8221;: Yandex&amp;#8217;s Online Image/Content Generation Service</a></li><li><a href=/docs/legacy/2023-09-16-hosting-a-custom-chatgpt-web-ui-with-your-own-api-keys/>Hosting a Custom ChatGPT Web UI with Your Own API Keys</a></li><li><a href=/docs/legacy/2023-09-13-powershell-gather-dns-server-logs-from-windows/>PowerShell: Gather DNS Server Logs from Windows</a></li><li><a href=/docs/legacy/2023-09-11-tracking-last-domain-login-events-on-azure-vms-a-handy-script/>Powershell: Tracking Last Domain Login Events on Azure VMs</a></li><li><a href=/docs/legacy/2023-09-10-how-hyper-v-works-high-level-overview/>How Hyper-V Works, High Level Overview</a></li><li><a href=/docs/legacy/2023-09-05-understanding-amsi-the-antimalware-scan-interface-in-windows-systems/>Understanding AMSI: The Antimalware Scan Interface in Windows Systems</a></li><li><a href=/docs/legacy/2023-08-28-how-to-track-registry-key-modifications-using-process-monitor/>How to Track Registry Key Modifications Using Process Monitor</a></li><li><a href=/docs/legacy/2023-08-27-bicep-execute-a-runcommand-on-already-running-azure-virtual-machine/>Bicep: Execute a RunCommand on already running Azure Virtual Machine</a></li><li><a href=/docs/legacy/2023-08-25-azure-nested-virtualization-hyper-v-cannot-be-installed-because-virtualization-support-is-not-enabled-in-the-bios/>Azure Nested Virtualization: Hyper-V cannot be installed because virtualization support is not enabled in the BIOS.</a></li><li><a href=/docs/legacy/2023-08-24-how-to-restart-group-policy-client-service-gpsvc/>How to restart Group Policy Client Service (GPSVC)</a></li><li><a href=/docs/legacy/2023-08-24-free-opnsense-firewall-nva-in-azure/>Free OPNsense Firewall NVA in Azure</a></li><li><a href=/docs/legacy/2023-08-23-youve-mounted-your-storage-account-but-you-see-that-the-space-available-is-less-than-visible-on-azure-portal/>You&amp;#8217;ve mounted your storage account, but you see that the space available is less than visible on Azure Portal</a></li><li><a href=/docs/legacy/2023-08-22-deploy-cse-custom-script-extension-using-managed-identity-to-authenticate-against-storage-account-where-script-is-stored-on-existing-running-vm/>Deploy CSE (Custom Script Extension) using Managed Identity to authenticate against storage account where script is stored on existing running VM</a></li><li><a href=/docs/legacy/2023-08-22-c-working-with-azure-imds/>C#: Working with Azure IMDS</a></li><li><a href=/docs/legacy/2023-08-22-c-check-if-service-exists-via-wmi/>C#: Check if service exists via WMI</a></li><li><a href=/docs/legacy/2023-08-22-capture-network-traffic-using-windows-built-in-tools/>Capture network traffic using windows built in tools</a></li></ul></li><li class=book-section-flat><a href=/docs/example/>Example Site</a><ul><li><a href=/docs/example/table-of-contents/>Table of Contents</a><ul><li><a href=/docs/example/table-of-contents/with-toc/>With ToC</a></li><li><a href=/docs/example/table-of-contents/without-toc/>Without ToC</a></li></ul></li><li><input type=checkbox id=section-3049b9efa63db187c30edc63a05cabc2 class=toggle>
+<label for=section-3049b9efa63db187c30edc63a05cabc2 class="flex justify-between"><a role=button>Collapsed</a></label><ul><li><a href=/docs/example/collapsed/3rd-level/>3rd Level</a><ul><li><a href=/docs/example/collapsed/3rd-level/4th-level/>4th Level</a></li></ul></li></ul></li></ul></li><li class=book-section-flat><a href=/docs/example2/>Example Site</a><ul><li><a href=/docs/example2/table-of-contents/>Table of Contents</a><ul><li><a href=/docs/example2/table-of-contents/with-toc/>With ToC</a></li><li><a href=/docs/example2/table-of-contents/without-toc/>Without ToC</a></li></ul></li><li><input type=checkbox id=section-241c84bb3eab034a2a9fc6034c481dd5 class=toggle>
+<label for=section-241c84bb3eab034a2a9fc6034c481dd5 class="flex justify-between"><a role=button>Collapsed</a></label><ul><li><a href=/docs/example2/collapsed/3rd-level/>3rd Level</a><ul><li><a href=/docs/example2/collapsed/3rd-level/4th-level/>4th Level</a></li></ul></li></ul></li></ul></li><li class=book-section-flat><span>Shortcodes</span><ul><li><a href=/docs/shortcodes/buttons/>Buttons</a></li><li><a href=/docs/shortcodes/columns/>Columns</a></li><li><a href=/docs/shortcodes/details/>Details</a></li><li><a href=/docs/shortcodes/expand/>Expand</a></li><li><a href=/docs/shortcodes/hints/>Hints</a></li><li><a href=/docs/shortcodes/mermaid/>Mermaid</a></li><li><input type=checkbox id=section-d4c83c0dd655503a3da63d0c6550ed41 class=toggle>
+<label for=section-d4c83c0dd655503a3da63d0c6550ed41 class="flex justify-between"><a href=/docs/shortcodes/section/>Section</a></label><ul><li><a href=/docs/shortcodes/section/first-page/>First Page</a></li><li><a href=/docs/shortcodes/section/second-page/>Second Page</a></li></ul></li><li><a href=/docs/shortcodes/tabs/>Tabs</a></li><li><a href=/docs/shortcodes/katex/>KaTeX</a></li></ul></li></ul><ul><li><a href=/posts/>Blog</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu>
+</label><strong>Rest API: Azure REST API POC</strong>
+<label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><ul><li></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><p>This PowerShell script serves as a Proof of Concept for teaching how to interact with Azure resources using REST API calls via PowerShell. It automates a series of Azure resource management tasks, providing a hands-on example for those looking to understand Azure REST API operations.</p><h4 id=span-classez-toc-section-idoperations_coveredspanoperations-coveredspan-classez-toc-section-endspan>Operations Covered:
+<a class=anchor href=#span-classez-toc-section-idoperations_coveredspanoperations-coveredspan-classez-toc-section-endspan>#</a></h4><ol><li><strong>Create a Managed Disk</strong>: Demonstrates how to allocate a managed disk in Azure.</li><li><strong>Create a Virtual Network (VNet)</strong>: Shows the steps to set up a virtual network.</li><li><strong>Create a Subnet</strong>: Explains how to add a subnet to the existing virtual network.</li><li><strong>Create a Disk Access Resource</strong>: Walks through the process of initializing a disk access resource.</li><li><strong>Create and Associate a Private Endpoint</strong>: Adds private endpoint and link it with the disk access resource.</li><li><strong>Update Managed Disk</strong>: Updates the managed disk to include the disk access resource.</li></ol><h4 id=span-classez-toc-section-idscript_componentsspanscript-componentsspan-classez-toc-section-endspan>Script Components:
+<a class=anchor href=#span-classez-toc-section-idscript_componentsspanscript-componentsspan-classez-toc-section-endspan>#</a></h4><ul><li><strong>Headers</strong>: Contains essential headers like authorization and content-type.</li><li><strong>JSON Bodies</strong>: Holds the JSON-formatted data that outlines the properties of the Azure resources.</li><li><strong>Invoke-RestMethod</strong>: The PowerShell cmdlet responsible for making the REST API calls to Azure.</li></ul><h4 id=span-classez-toc-section-idusagespanusagespan-classez-toc-section-endspan>Usage:
+<a class=anchor href=#span-classez-toc-section-idusagespanusagespan-classez-toc-section-endspan>#</a></h4><ol><li><strong>Authorization</strong>:<ul><li>Use <code>az account get-access-token --query 'accessToken' -o tsv</code> to fetch your Azure access token.</li><li>Substitute <code>YOURTOKEN</code> in the <code>$headers</code> section.</li></ul></li><li><strong>Resource Group</strong>:<ul><li>Replace the subscription ID and resource group name in the URIs with your specific details.</li></ul></li></ol><p>$headers = @{
+&ldquo;Authorization&rdquo; = &ldquo;Bearer YOURTOKEN&rdquo;
+&ldquo;Content-Type&rdquo; = &ldquo;application/json&rdquo;
+}</p><p>####Create a Managed Disk
+$jsonBody = @"
+{
+&ldquo;location&rdquo;: &ldquo;eastus&rdquo;,
+&ldquo;properties&rdquo;: {
+&ldquo;creationData&rdquo;: {
+&ldquo;createOption&rdquo;: &ldquo;Empty&rdquo;
+},
+&ldquo;diskSizeGB&rdquo;: 100
+}
+}
+&ldquo;@</p><p>Invoke-RestMethod -Uri &ldquo;<a href="https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Compute/disks/myManagedDisk?api-version=2021-04-01%22">https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Compute/disks/myManagedDisk?api-version=2021-04-01"</a> -Method Put -Headers $headers -Body $jsonBody</p><p>####Create a Virtual Network
+$jsonBody = @&rdquo;
+{
+&ldquo;location&rdquo;: &ldquo;eastus&rdquo;,
+&ldquo;properties&rdquo;: {
+&ldquo;addressSpace&rdquo;: {
+&ldquo;addressPrefixes&rdquo;: [&ldquo;10.0.0.0/16&rdquo;]
+}
+}
+}
+&ldquo;@</p><p>Invoke-RestMethod -Uri &ldquo;<a href="https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Network/virtualNetworks/myVnet?api-version=2021-02-01%22">https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Network/virtualNetworks/myVnet?api-version=2021-02-01"</a> -Method Put -Headers $headers -Body $jsonBody</p><p>#########CREATE SUBNET
+$jsonBodySubnet = @&rdquo;
+{
+&ldquo;properties&rdquo;: {
+&ldquo;addressPrefix&rdquo;: &ldquo;10.0.1.0/24&rdquo;
+}
+}
+&ldquo;@</p><p>$subnetUri = &ldquo;<a href="https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet?api-version=2021-02-01%22">https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet?api-version=2021-02-01"</a>
+Invoke-RestMethod -Uri $subnetUri -Method Put -Headers $headers -Body $jsonBodySubnet</p><p>####CREATE DISK ACCESS RESOURCE
+$jsonBodyDiskAccess = @&rdquo;
+{
+&ldquo;location&rdquo;: &ldquo;eastus&rdquo;,
+&ldquo;properties&rdquo;: {}
+}
+&ldquo;@</p><p>Invoke-RestMethod -Uri &ldquo;<a href="https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Compute/diskAccesses/myDiskAccess?api-version=2021-04-01%22">https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Compute/diskAccesses/myDiskAccess?api-version=2021-04-01"</a> -Method Put -Headers $headers -Body $jsonBodyDiskAccess</p><p>###Create and Associate Private Endpoint with Disk Access
+$jsonBodyPrivateEndpoint = @&rdquo;
+{
+&ldquo;location&rdquo;: &ldquo;eastus&rdquo;,
+&ldquo;properties&rdquo;: {
+&ldquo;privateLinkServiceConnections&rdquo;: [
+{
+&ldquo;name&rdquo;: &ldquo;myPrivateLinkConnection&rdquo;,
+&ldquo;properties&rdquo;: {
+&ldquo;privateLinkServiceId&rdquo;: &ldquo;/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Compute/diskAccesses/myDiskAccess&rdquo;,
+&ldquo;groupIds&rdquo;: [&ldquo;disks&rdquo;]
+}
+}
+],
+&ldquo;subnet&rdquo;: {
+&ldquo;id&rdquo;: &ldquo;/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet&rdquo;
+}
+}
+}
+&ldquo;@</p><p>Invoke-RestMethod -Uri &ldquo;<a href="https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Network/privateEndpoints/myPrivateEndpoint?api-version=2021-02-01%22">https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Network/privateEndpoints/myPrivateEndpoint?api-version=2021-02-01"</a> -Method Put -Headers $headers -Body $jsonBodyPrivateEndpoint</p><p>##Update disk to include disk access resource:</p><p>$diskAccessId = &ldquo;/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Compute/diskAccesses/myDiskAccess&rdquo;</p><p>$jsonBody = @&rdquo;
+{
+&ldquo;location&rdquo;: &ldquo;eastus&rdquo;,
+&ldquo;properties&rdquo;: {
+&ldquo;diskAccessId&rdquo;: &ldquo;$diskAccessId&rdquo;
+}
+}
+&ldquo;@</p><p>$uri = &ldquo;<a href="https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Compute/disks/myManagedDisk?api-version=2021-04-01%22">https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Compute/disks/myManagedDisk?api-version=2021-04-01"</a></p><h1 id=make-the-rest-api-call-to-update-the-managed-disk-with-the-disk-access-resource>Make the REST API call to update the managed disk with the disk access resource
+<a class=anchor href=#make-the-rest-api-call-to-update-the-managed-disk-with-the-disk-access-resource>#</a></h1><p>Invoke-RestMethod -Uri $uri -Method PATCH -Body $jsonBody -ContentType &ldquo;application/json&rdquo; -Headers $headers&rdquo; role=&ldquo;button&rdquo; style=&ldquo;color:#D4D4D4;display:none&rdquo; tabindex=&ldquo;0&rdquo;>```
+#Get your access token via
+# az account get-access-token &ndash;query &lsquo;accessToken&rsquo; -o tsv
+$headers = @{
+&ldquo;Authorization&rdquo; = &ldquo;Bearer YOURTOKEN&rdquo;
+&ldquo;Content-Type&rdquo; = &ldquo;application/json&rdquo;
+}
+####Create a Managed Disk
+$jsonBody = @"
+{
+&ldquo;location&rdquo;: &ldquo;eastus&rdquo;,
+&ldquo;properties&rdquo;: {
+&ldquo;creationData&rdquo;: {
+&ldquo;createOption&rdquo;: &ldquo;Empty&rdquo;
+},
+&ldquo;diskSizeGB&rdquo;: 100
+}
+}
+&rdquo;@
+Invoke-RestMethod -Uri &ldquo;<a href="https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Compute/disks/myManagedDisk?api-version=2021-04-01%22">https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Compute/disks/myManagedDisk?api-version=2021-04-01"</a> -Method Put -Headers $headers -Body $jsonBody
+####Create a Virtual Network
+$jsonBody = @"
+{
+&ldquo;location&rdquo;: &ldquo;eastus&rdquo;,
+&ldquo;properties&rdquo;: {
+&ldquo;addressSpace&rdquo;: {
+&ldquo;addressPrefixes&rdquo;: [&ldquo;10.0.0.0/16&rdquo;]
+}
+}
+}
+&rdquo;@
+Invoke-RestMethod -Uri &ldquo;<a href="https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Network/virtualNetworks/myVnet?api-version=2021-02-01%22">https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Network/virtualNetworks/myVnet?api-version=2021-02-01"</a> -Method Put -Headers $headers -Body $jsonBody
+#########CREATE SUBNET
+$jsonBodySubnet = @"
+{
+&ldquo;properties&rdquo;: {
+&ldquo;addressPrefix&rdquo;: &ldquo;10.0.1.0/24&rdquo;
+}
+}
+&rdquo;@
+$subnetUri = &ldquo;<a href="https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet?api-version=2021-02-01%22">https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet?api-version=2021-02-01"</a>
+Invoke-RestMethod -Uri $subnetUri -Method Put -Headers $headers -Body $jsonBodySubnet
+####CREATE DISK ACCESS RESOURCE
+$jsonBodyDiskAccess = @"
+{
+&ldquo;location&rdquo;: &ldquo;eastus&rdquo;,
+&ldquo;properties&rdquo;: {}
+}
+&rdquo;@
+Invoke-RestMethod -Uri &ldquo;<a href="https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Compute/diskAccesses/myDiskAccess?api-version=2021-04-01%22">https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Compute/diskAccesses/myDiskAccess?api-version=2021-04-01"</a> -Method Put -Headers $headers -Body $jsonBodyDiskAccess
+###Create and Associate Private Endpoint with Disk Access
+$jsonBodyPrivateEndpoint = @"
+{
+&ldquo;location&rdquo;: &ldquo;eastus&rdquo;,
+&ldquo;properties&rdquo;: {
+&ldquo;privateLinkServiceConnections&rdquo;: [
+{
+&ldquo;name&rdquo;: &ldquo;myPrivateLinkConnection&rdquo;,
+&ldquo;properties&rdquo;: {
+&ldquo;privateLinkServiceId&rdquo;: &ldquo;/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Compute/diskAccesses/myDiskAccess&rdquo;,
+&ldquo;groupIds&rdquo;: [&ldquo;disks&rdquo;]
+}
+}
+],
+&ldquo;subnet&rdquo;: {
+&ldquo;id&rdquo;: &ldquo;/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet&rdquo;
+}
+}
+}
+&rdquo;@
+Invoke-RestMethod -Uri &ldquo;<a href="https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Network/privateEndpoints/myPrivateEndpoint?api-version=2021-02-01%22">https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Network/privateEndpoints/myPrivateEndpoint?api-version=2021-02-01"</a> -Method Put -Headers $headers -Body $jsonBodyPrivateEndpoint
+##Update disk to include disk access resource:
+$diskAccessId = "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Compute/diskAccesses/myDiskAccess&rdquo;
+$jsonBody = @"
+{
+&ldquo;location&rdquo;: &ldquo;eastus&rdquo;,
+&ldquo;properties&rdquo;: {
+&ldquo;diskAccessId&rdquo;: &ldquo;$diskAccessId"
+}
+}
+&rdquo;@
+$uri = &ldquo;<a href="https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Compute/disks/myManagedDisk?api-version=2021-04-01%22">https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/AzureAPIPOC/providers/Microsoft.Compute/disks/myManagedDisk?api-version=2021-04-01"</a>
+# Make the REST API call to update the managed disk with the disk access resource
+Invoke-RestMethod -Uri $uri -Method PATCH -Body $jsonBody -ContentType &ldquo;application/json&rdquo; -Headers $headers</p><pre tabindex=0><code>
+&lt;/div&gt;
+</code></pre></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><ul><li></li></ul></li></ul></nav></div></aside></main></body></html>

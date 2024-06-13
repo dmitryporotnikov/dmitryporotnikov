@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>porotnikov.com</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on porotnikov.com</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 14 Jun 2024 00:55:57 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Readme</title>
+      <link>http://localhost:1313/readme/</link>
+      <pubDate>Fri, 14 Jun 2024 00:55:57 +0200</pubDate>
+      <guid>http://localhost:1313/readme/</guid>
+      <description>Hi there 👋 I work for Microsoft as an Azure Escalation Engineer. I specialize in system administration and virtualization, but as side projects and hobbies, I also dabble in IT security and coding (C#/C/Python).&#xA;I enjoy learning new technologies and sharing this knowledge with my peers. I&amp;rsquo;m a total nerd and computer geek, passionate about industry advancements in ARM silicon, AI, machine learning, and cloud computing.&#xA;🌱 Currently learning JavaScript/Go and algorithms at Boot.</description>
+    </item>
+    <item>
+      <title>My First Post</title>
+      <link>http://localhost:1313/post/new_post/</link>
+      <pubDate>Sun, 14 Jan 2024 07:07:07 +0100</pubDate>
+      <guid>http://localhost:1313/post/new_post/</guid>
+      <description>The summary content</description>
+    </item>
+  </channel>
+</rss>
