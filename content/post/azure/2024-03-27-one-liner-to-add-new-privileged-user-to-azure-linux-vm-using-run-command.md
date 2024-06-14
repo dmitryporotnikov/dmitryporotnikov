@@ -7,6 +7,7 @@ summary = "One-liner to add new privileged user to Azure Linux VM using run comm
 ## One-liner to add new privileged user to Azure Linux VM using run command
 
 When executed on an Azure VM running Linux (e.g from Run Command), this command effectively creates a new user named `recovery`, sets their password, and grants them sudo privileges.
-```
+
+```shell
 sudo useradd -m recovery -s /bin/bash -p $(echo testpasswd1! | openssl passwd -1 -stdin) && sudo usermod -aG sudo recovery
 ```
