@@ -1,7 +1,7 @@
 ---
 id: 410
-title: 'C++: Memory Leaker Tool &#8211; VeryLeakyCauldron'
-summary: 'C++: Memory Leaker Tool &#8211; VeryLeakyCauldron'
+title: 'C++: Memory Leaker Tool -  VeryLeakyCauldron'
+summary: 'C++: Memory Leaker Tool - VeryLeakyCauldron'
 date: '2023-09-22T14:09:42+00:00'
 author: admin
 layout: post
