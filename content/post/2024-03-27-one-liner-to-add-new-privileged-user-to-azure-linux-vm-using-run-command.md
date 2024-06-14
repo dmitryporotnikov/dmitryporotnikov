@@ -1,5 +1,5 @@
 +++
-title = 'My First Post'
+title = 'One-liner to add new privileged user to Azure Linux VM using run command'
 date = '2024-03-27T11:02:42+00:00'
 draft = false
 summary = "One-liner to add new privileged user to Azure Linux VM using run command"
