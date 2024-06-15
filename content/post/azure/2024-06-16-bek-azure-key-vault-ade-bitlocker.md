@@ -6,8 +6,7 @@ draft = false
 +++
 ## How to Convert a BEK File for Disk Decryption
 
-When working with Azure Key Vault, you might need to download a BitLocker Encryption Key (BEK) to decrypt a disk. However, the downloaded BEK file isn't in a usable format for decryption until it’s properly converted. Here’s a concise guide on how to transform the BEK file using a PowerShell script.
-The PowerShell Script
+When working with Azure Key Vault, you might need to download a BitLocker Encryption Key (BEK) to decrypt a disk. However, the downloaded BEK file isn't in a usable format for decryption until it’s properly converted.
 
 Below is a PowerShell script that converts a base64 encoded BEK file to a proper binary format:
 
