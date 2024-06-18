@@ -1,7 +1,8 @@
 ---
 title: "Azure Bastion and RDS Session Hosts - Compatibility Issue"
 summary: "Azure Bastion and RDS Session Hosts - Compatibility Issue"
-date: '2024-06-18T18:50:01+01:00'
+date: '2024-06-18T17:50:01+01:00'
+draft: false
 ---
 
 ## Azure Bastion and RDS Session Hosts - Compatibility Issue
