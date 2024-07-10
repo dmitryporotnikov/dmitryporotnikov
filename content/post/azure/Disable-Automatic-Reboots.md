@@ -2,6 +2,7 @@
 title: "Disable automatic reboots, for VM with AutomaticByPlatform patching mode"
 summary: "Disable automatic reboots, for VM with AutomaticByPlatform patching mode"
 date: '2024-07-10T11:58:07+00:00'
+draft: false
 ---
 
 # Disable automatic reboots
