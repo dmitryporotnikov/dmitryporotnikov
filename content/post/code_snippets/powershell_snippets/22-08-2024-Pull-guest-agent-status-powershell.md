@@ -14,6 +14,7 @@ categories:
 ## PowerShell: Check VM guest agent status for all VMs across subscription 
 
 ```powershell
+
 # Azure VM Agent Status Check Script
 # Purpose: This script checks the status and version of the VM agent for all running VMs in a specified Azure subscription.
 # It provides information about the OS type, VM agent provisioning status, and current agent version.
@@ -64,4 +65,5 @@ foreach ($vm in $vms) {
     
     Write-Host "------------------------"
 }
-    ```
+
+```
