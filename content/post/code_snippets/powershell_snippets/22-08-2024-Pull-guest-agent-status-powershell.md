@@ -1,14 +1,7 @@
 ---
-id: 60
-title: 'PowerShell: Check AzureVM license type (Hybrid Benefit)'
-summary: 'PowerShell: Check AzureVM license type (Hybrid Benefit)'
-date: '2023-08-21T13:35:06+00:00'
-author: admin
-layout: post
-guid: 'https://porotnikov.com/?p=60'
-permalink: /2023/08/22/powershell-check-azurevm-license-type-hybrid-benefit/
-categories:
-    - Code
+title: 'PowerShell: Check VM guest agent status for all VMs across subscription'
+summary: 'PowerShell: Check VM guest agent status for all VMs across subscription'
+date: '2024-08-22T00:00:00+00:00'
 ---
 
 ## PowerShell: Check VM guest agent status for all VMs across subscription 
