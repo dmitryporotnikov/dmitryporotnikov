@@ -4,7 +4,7 @@ summary: 'Download TSS'
 date: '2024-07-15T00:00:00+00:00'
 ---
 
-## PowerShell: Check AzureVM license type (Hybrid Benefit)
+## PowerShell: Script to download TSS toolkit
 
 ```powershell
 $url = "https://aka.ms/getTSS"
