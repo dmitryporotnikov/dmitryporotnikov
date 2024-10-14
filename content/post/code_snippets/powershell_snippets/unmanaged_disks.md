@@ -1,6 +1,6 @@
 ---
 title: 'Create VM with unmanaged disks, attach unmanaged data disks, get the Azure Resource Graph report on it'
-summary: 'Download TSS'
+summary: 'Create VM with unmanaged disks, attach unmanaged data disks, get the Azure Resource Graph report on it'
 date: '2024-10-14T00:00:00+00:00'
 ---
 
