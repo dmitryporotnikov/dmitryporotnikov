@@ -47,3 +47,14 @@ New-NetNat -Name "$switchName" -InternalIPInterfaceAddressPrefix $natSubnet
 Get-NetNat
 Get-VMSwitch
 ```
+
+If you need a NAT rule to RDP to the VM:
+
+```powershell
+$natName = "NATSwitch"           
+$externalPort = 33389            
+$internalPort = 3389            
+$internalIPAddress = "192.168.100.10"  #Replace with guest OS IP
+
+Add-NetNatStaticMapping -NatName $natName -Protocol TCP -ExternalIPAddress 0.0.0.0 -ExternalPort $externalPort -InternalIPAddress $internalIPAddress -InternalPort $internalPort
+```
