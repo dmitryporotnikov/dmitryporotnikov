@@ -68,7 +68,7 @@ jobs:
       - name: Notify Telegram on Build Failure
         if: failure()
         run: |
-          curl -s --data "text=<b>Website Update Failed at Build Sir❌</b>%0AWorkflow failed during the build process. Check logs for details.%0AWebsite URL: www.softlockup.com%0AWorkflow Run: ${{ github.run_number }}%0ASubmitted by: ${{ github.actor }}&parse_mode=HTML" \
+          curl -s --data "text=<b>Website Update Failed at Build Sir❌</b>%0AWorkflow failed during the build process. Check logs for details.%0AWebsite URL: porotnikov.com%0AWorkflow Run: ${{ github.run_number }}%0ASubmitted by: ${{ github.actor }}&parse_mode=HTML" \
             --data "chat_id=${{ secrets.TG_CHAT_ID }}" \
             "https://api.telegram.org/bot${{ secrets.TG_BOT_TOKEN }}/sendMessage"
 
