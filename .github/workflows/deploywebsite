@@ -86,14 +86,14 @@ jobs:
       - name: Notify Telegram on Deploy Success
         if: success()
         run: |
-          curl -s --data "text=<b>Website Update Successful Sir🎉</b>%0AWorkflow completed successfully.%0AWebsite URL: www.softlockup.com%0AWorkflow Run: ${{ github.run_number }}%0ASubmitted by: ${{ github.actor }}&parse_mode=HTML" \
+          curl -s --data "text=<b>Website Update Successful Sir🎉</b>%0AWorkflow completed successfully.%0AWebsite URL: porotnikov.com%0AWorkflow Run: ${{ github.run_number }}%0ASubmitted by: ${{ github.actor }}&parse_mode=HTML" \
             --data "chat_id=${{ secrets.TG_CHAT_ID }}" \
             "https://api.telegram.org/bot${{ secrets.TG_BOT_TOKEN }}/sendMessage"
 
       - name: Notify Telegram on Deploy Failure
         if: failure()
         run: |
-          curl -s --data "text=<b>Website Update Failed at Deploy Sir ❌</b>%0AWorkflow failed during the deploy process. Check logs for details.%0AWebsite URL: www.softlockup.com%0AWorkflow Run: ${{ github.run_number }}%0ASubmitted by: ${{ github.actor }}&parse_mode=HTML" \
+          curl -s --data "text=<b>Website Update Failed at Deploy Sir ❌</b>%0AWorkflow failed during the deploy process. Check logs for details.%0AWebsite URL: porotnikov.com%0AWorkflow Run: ${{ github.run_number }}%0ASubmitted by: ${{ github.actor }}&parse_mode=HTML" \
             --data "chat_id=${{ secrets.TG_CHAT_ID }}" \
             "https://api.telegram.org/bot${{ secrets.TG_BOT_TOKEN }}/sendMessage"
 
