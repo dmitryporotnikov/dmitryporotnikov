@@ -2,7 +2,7 @@ baseURL = "https://porotnikov.com"
 languageCode = "en-us"
 title = "porotnikov.com"
 theme = "github-style"
-publishDir = "docs"
+publishDir = "public"
 
 [params]
   author = "Dmitry Porotnikov"
