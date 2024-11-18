@@ -16,6 +16,13 @@ This script identifies unused VHDs in Azure storage accounts. It first retrieves
 # Disclaimer: This script is provided "as is" without warranty of any kind.
 # Pre-requisites: Install the Azure Resource Graph Module using the following command: 
 # Install-Module -Name Az.ResourceGraph -AllowClobber -Force
+# ------------------------------------------------
+# If you will face an issue with Az.ResourceGraph complaining about Az.Accounts being too old:
+# Istall-Module -Name Az.Accounts -RequiredVersion 3.0.5
+# Then open a new cloud shell session and do:
+# Import-Module -Name Az.Accounts -RequiredVersion 3.0.5 -Force
+# Import-Module -Name Az.ResourceGraph
+#  ------------------------------------------------
 # Note: Script tested in Azure Cloud Shell (PowerShell mode)
 
 # Step 1: Get the list of VHDs associated with VMs using Azure Resource Graph
