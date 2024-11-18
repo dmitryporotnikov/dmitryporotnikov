@@ -68,3 +68,61 @@ $orphanedVhds = $allVhds | Where-Object { $_ -notin $vmVhdUris }
 $orphanedVhds
 
 ```
+
+# To check only certain Storage Accounts in Certain Resource Groups
+```powershell
+
+# Step 1: Get the list of VHDs associated with VMs using Azure Resource Graph
+$vmVhds = Search-AzGraph -Query @"
+resources
+| where type == "microsoft.compute/virtualmachines"
+| where properties.storageProfile.osDisk.managedDisk == ""
+| extend diskUri = properties.storageProfile.osDisk.vhd.uri
+| project diskUri
+| union (
+    resources
+    | where type == "microsoft.compute/virtualmachines"
+    | mvexpand dataDisk = properties.storageProfile.dataDisks
+    | where dataDisk.managedDisk == ""
+    | extend diskUri = dataDisk.vhd.uri
+    | project diskUri
+)
+"@ 
+
+$vmVhdUris = $vmVhds.diskUri
+
+# Define the list of storage account names that you want to check
+$storageAccountNames = @("storageAccount1", "storageAccount2", "storageAccount3") # Replace with your storage account names
+
+$resourceGroupName = "YourResourceGroupName"
+
+# Get only the storage accounts from the specified list
+$storageAccounts = @()
+foreach ($storageAccountName in $storageAccountNames) {
+    $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName
+    if ($storageAccount) {
+        $storageAccounts += $storageAccount
+    }
+}
+
+$allVhds = @()
+foreach ($storageAccount in $storageAccounts) {
+    $context = $storageAccount.Context
+    $containers = Get-AzStorageContainer -Context $context
+    foreach ($container in $containers) {
+        $blobs = Get-AzStorageBlob -Container $container.Name -Context $context
+        $vhdBlobs = $blobs | Where-Object { $_.Name -like "*.vhd" }
+        foreach ($vhdBlob in $vhdBlobs) {
+            $vhdUri = ($context.BlobEndPoint + $container.Name + "/" + $vhdBlob.Name)
+            $allVhds += $vhdUri
+        }
+    }
+}
+
+# Step 3: Find orphaned VHDs by comparing the lists
+$orphanedVhds = $allVhds | Where-Object { $_ -notin $vmVhdUris }
+
+# Output the orphaned VHD URIs
+$orphanedVhds
+
+```
