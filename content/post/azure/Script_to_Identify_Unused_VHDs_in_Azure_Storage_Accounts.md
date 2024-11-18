@@ -93,9 +93,6 @@ resources
 
 $vmVhdUris = $vmVhds.diskUri
 
-# Define the list of storage account names that you want to check
-$storageAccountNames = @("storageAccount1", "storageAccount2", "storageAccount3") # Replace with your storage account names
-
 # Get only the storage accounts from the specified list
 $storageAccounts = @()
 foreach ($storageAccountName in $storageAccountNames) {
