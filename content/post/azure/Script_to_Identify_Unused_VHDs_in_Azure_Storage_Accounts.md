@@ -122,3 +122,60 @@ $orphanedVhds
 
 
 ```
+
+# Multiple Resource Groups
+
+```powershell
+
+# Define the list of resource groups
+$resourceGroupNames = @("ResourceGroup1", "ResourceGroup2", "ResourceGroup3")
+
+# Step 1: Get the list of VHDs associated with VMs using Azure Resource Graph
+$vmVhds = Search-AzGraph -Query @"
+resources
+| where type == "microsoft.compute/virtualmachines"
+| where properties.storageProfile.osDisk.managedDisk == ""
+| extend diskUri = properties.storageProfile.osDisk.vhd.uri
+| project diskUri
+| union (
+    resources
+    | where type == "microsoft.compute/virtualmachines"
+    | mvexpand dataDisk = properties.storageProfile.dataDisks
+    | where dataDisk.managedDisk == ""
+    | extend diskUri = dataDisk.vhd.uri
+    | project diskUri
+)
+"@ 
+
+$vmVhdUris = $vmVhds.diskUri
+
+# Step 2: Initialize an array to store VHD URIs
+$allVhds = @()
+
+# Step 3: Iterate over each resource group and get the storage accounts
+foreach ($resourceGroupName in $resourceGroupNames) {
+    $storageAccounts = Get-AzStorageAccount -ResourceGroupName $resourceGroupName
+
+    foreach ($storageAccount in $storageAccounts) {
+        $context = $storageAccount.Context
+        $containers = Get-AzStorageContainer -Context $context
+
+        foreach ($container in $containers) {
+            $blobs = Get-AzStorageBlob -Container $container.Name -Context $context
+            $vhdBlobs = $blobs | Where-Object { $_.Name -like "*.vhd" }
+
+            foreach ($vhdBlob in $vhdBlobs) {
+                $vhdUri = ($context.BlobEndPoint + $container.Name + "/" + $vhdBlob.Name)
+                $allVhds += $vhdUri
+            }
+        }
+    }
+}
+
+# Step 4: Find orphaned VHDs by comparing the lists
+$orphanedVhds = $allVhds | Where-Object { $_ -notin $vmVhdUris }
+
+# Output the orphaned VHD URIs
+$orphanedVhds
+
+```
