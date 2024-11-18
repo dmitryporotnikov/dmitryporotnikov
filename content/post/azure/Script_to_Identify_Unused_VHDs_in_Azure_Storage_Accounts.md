@@ -72,6 +72,8 @@ $orphanedVhds
 # To check only certain Storage Accounts in Certain Resource Groups
 ```powershell
 
+$resourceGroupName = "YourResourceGroupName"
+
 # Step 1: Get the list of VHDs associated with VMs using Azure Resource Graph
 $vmVhds = Search-AzGraph -Query @"
 resources
@@ -93,8 +95,6 @@ $vmVhdUris = $vmVhds.diskUri
 
 # Define the list of storage account names that you want to check
 $storageAccountNames = @("storageAccount1", "storageAccount2", "storageAccount3") # Replace with your storage account names
-
-$resourceGroupName = "YourResourceGroupName"
 
 # Get only the storage accounts from the specified list
 $storageAccounts = @()
