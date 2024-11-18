@@ -38,6 +38,7 @@ resources
 $vmVhdUris = $vmVhds.diskUri
 
 # Step 2: Get all VHDs from storage accounts
+$storageAccounts = Get-AzStorageAccount
 $allVhds = @()
 foreach ($storageAccount in $storageAccounts) {
     $context = $storageAccount.Context
