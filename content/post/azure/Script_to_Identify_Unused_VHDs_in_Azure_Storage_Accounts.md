@@ -93,22 +93,20 @@ resources
 
 $vmVhdUris = $vmVhds.diskUri
 
-# Get only the storage accounts from the specified list
-$storageAccounts = @()
-foreach ($storageAccountName in $storageAccountNames) {
-    $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName
-    if ($storageAccount) {
-        $storageAccounts += $storageAccount
-    }
-}
+# Step 2: Get all storage accounts in the resource group
+$storageAccounts = Get-AzStorageAccount -ResourceGroupName $resourceGroupName
 
+# Step 3: Get all VHDs from all storage accounts
 $allVhds = @()
+
 foreach ($storageAccount in $storageAccounts) {
     $context = $storageAccount.Context
     $containers = Get-AzStorageContainer -Context $context
+
     foreach ($container in $containers) {
         $blobs = Get-AzStorageBlob -Container $container.Name -Context $context
         $vhdBlobs = $blobs | Where-Object { $_.Name -like "*.vhd" }
+
         foreach ($vhdBlob in $vhdBlobs) {
             $vhdUri = ($context.BlobEndPoint + $container.Name + "/" + $vhdBlob.Name)
             $allVhds += $vhdUri
@@ -116,10 +114,11 @@ foreach ($storageAccount in $storageAccounts) {
     }
 }
 
-# Step 3: Find orphaned VHDs by comparing the lists
+# Step 4: Find orphaned VHDs by comparing the lists
 $orphanedVhds = $allVhds | Where-Object { $_ -notin $vmVhdUris }
 
 # Output the orphaned VHD URIs
 $orphanedVhds
+
 
 ```
