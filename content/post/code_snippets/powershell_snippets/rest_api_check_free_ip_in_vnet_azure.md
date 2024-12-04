@@ -4,7 +4,7 @@ summary: 'Powershell snippet to check for a free IP in Azure Virtual Network'
 date: '2024-12-04T00:00:00+00:00'
 ---
 
-## PowerShell: Script to download TSS toolkit
+## Powershell snippet to check for a free IP in Azure Virtual Network
 
 ```powershell
 
