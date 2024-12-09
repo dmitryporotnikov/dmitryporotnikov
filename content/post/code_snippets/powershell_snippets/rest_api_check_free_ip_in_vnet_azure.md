@@ -43,3 +43,25 @@ if ($response.available -eq $true) {
 }
 
 ```
+
+## Powershell cmdlet version
+
+```powershell
+
+$resourceGroupName = "RGNAME"
+$vnetName = "VNETNAME"
+$ipAddressToTest = "10.1.0.5"  
+
+$vnet = Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroupName
+$result = Test-AzPrivateIPAddressAvailability -VirtualNetwork $vnet -IPAddress $ipAddressToTest
+
+if ($result.Available) {
+    Write-Host "The IP address $ipAddressToTest is available in the virtual network $vnetName." -ForegroundColor Green
+} else {
+    Write-Host "The IP address $ipAddressToTest is not available in the virtual network $vnetName." -ForegroundColor Red
+    Write-Host "Available IP addresses in the subnet:" -ForegroundColor Yellow
+    $result.AvailableIPAddresses | ForEach-Object { Write-Host $_ }
+}
+
+
+```
