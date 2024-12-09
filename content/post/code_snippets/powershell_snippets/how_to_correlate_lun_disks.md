@@ -61,3 +61,23 @@ foreach ($disk in $disks) {
 
 The output should look like this:
 ![Powershell output](https://cdn.porotnikov.com/githubpages/2024/disk_lun_ps_output.png)
+
+## Linux
+
+Linux is much easier:
+
+```shell
+
+[root@rhel89latestminor ~]# dmesg | grep "Attached SCSI"
+[    9.511375] sd 1:0:0:2: [sdd] Attached SCSI disk
+[    9.514221] sd 0:0:0:1: [sda] Attached SCSI disk
+[    9.522442] sd 1:0:0:0: [sdc] Attached SCSI disk
+[    9.545461] sd 1:0:0:1: [sdb] Attached SCSI disk
+[    9.620817] sd 0:0:0:0: [sde] Attached SCSI disk
+
+```
+
+0:0:0:0 -> always OS 
+0:0:0:1 -> always temp
+1:0.0.X -> always Data, where X = Lun number
+
