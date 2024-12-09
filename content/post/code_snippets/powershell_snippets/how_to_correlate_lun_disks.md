@@ -77,6 +77,19 @@ Linux is much easier:
 
 ```
 
+or
+
+```shell
+
+[root@rhel89latestminor ~]# lsscsi
+[0:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sde
+[0:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sda
+[1:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
+[1:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sdb
+[1:0:0:2]    disk    Msft     Virtual Disk     1.0   /dev/sdd
+
+```
+
 0:0:0:0 -> always OS 
 0:0:0:1 -> always temp
 1:0.0.X -> always Data, where X = Lun number
