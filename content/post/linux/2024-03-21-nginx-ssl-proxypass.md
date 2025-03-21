@@ -1,7 +1,8 @@
 ---
-title: 'How to configure NGINX + Certbot for SSL proxy_pass'
-summary: 'How to configure NGINX + Certbot for SSL proxy_pass'
+title: "How to configure NGINX + Certbot for SSL proxy_pass"
+summary: "How to configure NGINX + Certbot for SSL proxy_pass"
 date: '2024-03-21T00:00:00+00:00'
+draft: false
 ---
 ### Intro
 This is a short step-by-step guide on how to configure Nginx and Certbot with Let's Encrypt certificates to secure an HTTP-only website running on port 8090 behind port 443 with SSL.
