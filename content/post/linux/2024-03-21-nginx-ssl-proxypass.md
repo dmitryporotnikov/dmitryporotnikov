@@ -1,7 +1,7 @@
 ---
 title: "How to configure NGINX + Certbot for SSL proxy_pass"
 summary: "How to configure NGINX + Certbot for SSL proxy_pass"
-date: '2024-03-21T00:00:00+00:00'
+date: '2025-03-21T00:00:00+00:00'
 draft: false
 ---
 ### Intro
