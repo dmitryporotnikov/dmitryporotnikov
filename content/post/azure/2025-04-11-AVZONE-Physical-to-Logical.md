@@ -1,11 +1,11 @@
 ---
-title: "Resizing or modifying a VM with a UMI fails via Azure PowerShell/CLI but succeeds in Azure Portal"
-summary: "Resizing or modifying a VM with a UMI fails via Azure PowerShell/CLI but succeeds in Azure Portal"
+title: "Your Availability Zone 1 in one subscription might not be the same physical zone as Availability Zone 1 in another"
+summary: "Your Availability Zone 1 in one subscription might not be the same physical zone as Availability Zone 1 in another"
 date: '2025-04-11T00:00:00+00:00'
 draft: false
 ---
 
-# Your "Availability Zone 1" in one subscription might not be the same physical zone as "Zone 1" in another
+# Your "Availability Zone 1" in one subscription might not be the same physical zone as "Availability Zone 1" in another
 
 Did you know that “Availability Zone 1” in one Azure subscription might not point to the same physical datacenter as “Zone 1” in another?
 
