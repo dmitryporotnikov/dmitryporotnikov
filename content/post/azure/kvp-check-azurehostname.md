@@ -1,7 +1,7 @@
 ---
 title: "Check if two Azure VMs are on the same physical host"
 summary: "Check if two Azure VMs are on the same physical host"
-date: '2024-07-24T00:00:00'
+date: '2025-07-24T00:00:00'
 draft: false
 ---
 
