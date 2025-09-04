@@ -16,7 +16,7 @@ When viewing the system from RAMMAP, this is how consumption looked like:
 
 ![RAMMAP](https://cdn.porotnikov.com/media/2025/9/4/RAMMAP.png)
 
-What is this mystery Metafile entry. It is a cache for [MFT table](https://learn.microsoft.com/en-us/windows/win32/fileio/master-file-table).
+What is this mystery Metafile entry? It is a cache for [MFT table](https://learn.microsoft.com/en-us/windows/win32/fileio/master-file-table).
 
       
 Back in a day, (windows server 2003/2008 era) there was a way to control the metafile usage with an official [Microsoft tool Dyncache](http://www.microsoft.com/en-us/download/details.aspx?id=9258), but this tool wont work on modern OS:  
@@ -132,7 +132,7 @@ int main() {
 
 ```
 
-If you want to intentionally to populate cache:
+If you want to intentionally populate cache:
 
 1. Create a test data:
 
