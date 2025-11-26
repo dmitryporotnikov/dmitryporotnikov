@@ -12,7 +12,7 @@ Apple decided to deprecate the [AFP protocol](https://en.wikipedia.org/wiki/Appl
 
 ### The issue
 
-f you will try to configure the backup via GUI, you will be greeted with **I"The selected network backup disk does not support the required capabilities."** message. This is most likely due to the fact, that the GUI tries to configure backup via SMB, but the QNAP is offering AFP by default.
+If you will try to configure the backup via GUI, you will be greeted with **I"The selected network backup disk does not support the required capabilities."** message. This is most likely due to the fact, that the GUI tries to configure backup via SMB, but the QNAP is offering AFP by default.
 
 ### How to solve this?
 
