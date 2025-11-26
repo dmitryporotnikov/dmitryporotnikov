@@ -1,9 +1,10 @@
 ---
 title: "Qnap TS-412 and Time Machine on Modern Mac OS"
 summary: "How to configure Time Machine backup on a legacy NAS"
-date: '2025-11-27T00:00:00+00:00'
+date: '2025-11-26T00:00:00+00:00'
 draft: false
 ---
+
 ### Intro
 
 I have a lecacy nas (QNAP TS 412) and I wanted to use it for Time Machine backups for my Macbook. Challenge is, it is a legacy hardware, and despite still getting updates from QNAP, the packages like HBS for backup, are quite old. 
