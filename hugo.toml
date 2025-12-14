@@ -1,0 +1,26 @@
+baseURL = "https://porotnikov.com"
+languageCode = "en-us"
+title = "porotnikov.com"
+theme = "github-style"
+publishDir = "public"
+
+[params]
+  author = "Dmitry Porotnikov"
+  description = "Never make production changes on Friday."
+  github = "dmitryporotnikov"
+  linkedin = "dmitryporotnikov"
+  email = "dmitry@porotnikov.com"
+  url = "https://porotnikov.com"
+  keywords = "blog"
+  rss = false
+  lastmod = true
+  favicon = "/images/github.png"
+  avatar = "/images/avatar.jpeg"
+  headerIcon = "/images/GitHub-Mark-Light-32px.png"
+  location = "Poland"
+  enableGitalk = false
+
+  [[params.links]]
+    title = "Credly"
+    href = "https://www.credly.com/users/dmitry-porotnikov/badges"
+    icon = "/images/credly.png"
