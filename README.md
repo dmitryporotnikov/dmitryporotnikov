@@ -25,13 +25,12 @@ I specialize in system administration and virtualization, but as side projects a
 
 ## Featured Projects
 
-### Linux Performance & Diagnostics
-
 | Project | Description | 
 |---------|-------------|
 | **[CustomIOFilterDriver](https://github.com/dmitryporotnikov/CustomIOFilterDriver)** | Windows Driver to simulate OS performance issues caused by poorly written security software, or layering multiple uneeded filter drivers in the Windows OS stack.
 | **[RDPHoneyPot](https://github.com/dmitryporotnikov/RDPHoneyPot)** | RDP Honeypot application that does a basic protocol mocking and able to distinguish RDP clients from a port scanners. Uses SQLite to store the data. 
 | **[MangoBattery](https://github.com/dmitryporotnikov/MangoBattery)** | C#/WFP application that displays battery health in %, Cycle Count and other service data.
+| **[defunctdns](https://github.com/dmitryporotnikov/defunctdns)** | A "faulty" dns server (GO), that on purpose returns NXDOMAIN for AAAA records, but provides correct A record for the same FQDN.
 
 
 ### Knowledge Sharing
