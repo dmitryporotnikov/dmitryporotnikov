@@ -27,16 +27,15 @@ I specialize in system administration and virtualization, but as side projects a
 
 | Project | Description | 
 |---------|-------------|
-| **[CustomIOFilterDriver](https://github.com/dmitryporotnikov/CustomIOFilterDriver)** | Windows Driver to simulate OS performance issues caused by poorly written security software, or layering multiple uneeded filter drivers in the Windows OS stack.
-| **[RDPHoneyPot](https://github.com/dmitryporotnikov/RDPHoneyPot)** | RDP Honeypot application that does a basic protocol mocking and able to distinguish RDP clients from a port scanners. Uses SQLite to store the data. 
+| **[MangoBattery](https://github.com/dmitryporotnikov/HorrorCode)** | HorrorCode - Absolutely horrible Filter driver, DPC driver and borked dual stack DNS server, for demo and learning on how poorly coded software affects stability and performance.
 | **[MangoBattery](https://github.com/dmitryporotnikov/MangoBattery)** | C#/WFP application that displays battery health in %, Cycle Count and other service data.
-| **[defunctdns](https://github.com/dmitryporotnikov/defunctdns)** | A "faulty" dns server (GO), that on purpose returns NXDOMAIN for AAAA records, but provides correct A record for the same FQDN.
+
 
 
 ### Knowledge Sharing
 
 | Resource | Description |
 |----------|-------------|
-| **[porotnikov.com](https://porotnikov.com)** | Public notepad of mine :) |
+| **[porotnikov.com](https://porotnikov.com)** | Public notepad of mine |
 
 ---
