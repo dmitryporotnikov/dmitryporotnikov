@@ -27,7 +27,7 @@ I specialize in system administration and virtualization, but as side projects a
 
 | Project | Description | 
 |---------|-------------|
-| **[MangoBattery](https://github.com/dmitryporotnikov/HorrorCode)** | HorrorCode - Absolutely horrible Filter driver, DPC driver and borked dual stack DNS server, for demo and learning on how poorly coded software affects stability and performance.
+| **[HorrorCode](https://github.com/dmitryporotnikov/HorrorCode)** | HorrorCode - Absolutely horrible Filter driver, DPC driver and borked dual stack DNS server, for demo and learning on how poorly coded software affects stability and performance.
 | **[MangoBattery](https://github.com/dmitryporotnikov/MangoBattery)** | C#/WFP application that displays battery health in %, Cycle Count and other service data.
 
 
