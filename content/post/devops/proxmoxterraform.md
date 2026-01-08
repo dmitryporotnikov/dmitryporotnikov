@@ -30,7 +30,7 @@ After this is done, create and provision a new agent. Luckily this phase is well
 
 https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/linux-agent?view=azure-devops&tabs=IP-V4
 
-If you managed to configure the agent correctly, it should report it's status and appear "green":
+If you managed to configure the agent correctly, it should report its status and appear "green":
 
 ![AgentStatus.png](https://cdn.porotnikov.com/media/2026/1/7/AgentStatus.png)
 
@@ -416,18 +416,20 @@ You can move other values you consider "sensitive" to the variable group, but at
 Go to pipelines ->New Pipeline. Pick Azure Repos as git source. Pick repository you just created and -> Select an existing YAML file. Pick **PXMX_VMDeploy.yml**
 
 ### Configure Proxmox template
-At this stage you are ready to run pipeline, but you need base cloud-init VM to clone. If you already know how to create a cloud-init capable VM, feel free to skip this step.
+At this stage you are ready to run pipeline, but you need a base cloud-init VM to clone. If you already know how to create a cloud-init capable VM, feel free to skip this step.
 
-You have two choices - create a provision your own cloud-init capable image (best option), or rely on vendor public cloud images. 
+You have two choices - create a provision your own cloud-init capable image (best option), or rely on a vendor public cloud images. 
+
+You can download those here:
 
 Ubuntu -> https://cloud-images.ubuntu.com
 
 Rocky Linux -> https://wiki.rockylinux.org/rocky/image/
 
-Creating and configuring cloud-init is out of the scope for this tutorial, so I'd use a ready pre-build image as an example. 
+Creating and configuring cloud-init image is out of the scope for this tutorial, so I'll use a ready pre-built image as an example. 
 
 Create a new VM you'd use for templating. Do not attach any disks, do not start it. Chose proper for the image boot type (MBR/UEFI).
-Upload cloud image to the proxmox server using SFTP.
+Upload cloud-init image (qcow/img) to the proxmox server using SFTP.
 
 In Proxmox console, prepare this new VM (lets assume its ID 101) for templating:
 
