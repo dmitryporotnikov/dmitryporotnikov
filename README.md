@@ -15,7 +15,7 @@
 
 I specialize in system administration and virtualization, but as side projects and hobbies, I also dabble in IT security and coding (C#/C/Python/GO). Somehow managed to win the ***Microsoft Garage Hackathon in 2023.*** I enjoy learning new technologies and sharing this knowledge with my peers. I'm a total nerd and computer geek, passionate about industry advancements in ARM silicon, AI, machine learning, and cloud computing.
 
-Want to know more? Do ***ssh dmitry.porotnikov.com***
+Want to know more? Run ***ssh dmitry.porotnikov.com***
 
 ---
 
