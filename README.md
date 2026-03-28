@@ -28,6 +28,7 @@
 | Project | Description | 
 |---------|-------------|
 | **[SSLInspectingRouter](https://github.com/dmitryporotnikov/SSLInspectingRouter)** | Look into SSL encrypted traffic without setting proxy server in the OS (GO). [Landing page](https://sslrouter.porotnikov.com/) 
+| **[Cloud Status Dashboard](https://github.com/dmitryporotnikov/cloud-status-dashboard)** | A single dashboard showing health status for multiple IAAS/SAAS providers. [Demo](http://status.porotnikov.com/) 
 | **[MangoBattery](https://github.com/dmitryporotnikov/MangoBattery)** | C#/WFP application that displays battery health in %, Cycle Count and other service data.
 | **[HorrorCode](https://github.com/dmitryporotnikov/HorrorCode)** | HorrorCode - Absolutely horrible Filter driver, DPC driver and borked dual stack DNS server, for demo and learning on how poorly coded software affects stability and performance.
 
