@@ -13,7 +13,7 @@
 
 ## About Me
 
-I specialize in system administration and virtualization, but as side projects and hobbies, I also dabble in IT security and coding (C#/C/Python/GO). Somehow managed to win the ***Microsoft Garage Hackathon in 2023.*** I enjoy learning new technologies and sharing this knowledge with my peers. I'm a total nerd and computer geek, passionate about industry advancements in ARM silicon, AI, machine learning, and cloud computing.
+![about](about.png)
 
 ---
 
@@ -27,9 +27,10 @@ I specialize in system administration and virtualization, but as side projects a
 
 | Project | Description | 
 |---------|-------------|
-| **[HorrorCode](https://github.com/dmitryporotnikov/HorrorCode)** | HorrorCode - Absolutely horrible Filter driver, DPC driver and borked dual stack DNS server, for demo and learning on how poorly coded software affects stability and performance.
+| **[SSLInspectingRouter](https://github.com/dmitryporotnikov/SSLInspectingRouter)** | Look into SSL encrypted traffic without setting proxy server in the OS (GO). [Landing page](https://sslrouter.porotnikov.com/) 
+| **[Cloud Status Dashboard](https://github.com/dmitryporotnikov/cloud-status-dashboard)** | A single dashboard showing health status for multiple IAAS/SAAS providers. [Demo](https://status.porotnikov.com/) 
 | **[MangoBattery](https://github.com/dmitryporotnikov/MangoBattery)** | C#/WFP application that displays battery health in %, Cycle Count and other service data.
-| **[SSLInspectingRouter](https://github.com/dmitryporotnikov/SSLInspectingRouter)** | Look into SSL encrypted traffic without setting proxy server in the OS (GO)
+| **[HorrorCode](https://github.com/dmitryporotnikov/HorrorCode)** | HorrorCode - Absolutely horrible Filter driver, DPC driver and borked dual stack DNS server, for demo and learning on how poorly coded software affects stability and performance.
 
 ### Knowledge Sharing
 
