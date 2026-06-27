@@ -13,7 +13,7 @@
 
 ## About Me
 
-![about](about.png)
+![about](about.jpg)
 
 ---
 
