@@ -1,7 +1,7 @@
 ---
 title: 'Measuring Link Speed and path quality on Linux via speedtest CLI and mtr'
 summary: 'Measuring Link Speed and path quality on Linux via speedtest CLI and mtr'
-date: '2026-07-08T00:00:00+00:00'
+date: '2026-07-06T00:00:00+00:00'
 ---
 
 # Measuring Link Speed and path quality on Linux via speedtest CLI and mtr
